@@ -5,12 +5,12 @@ XHTML是升级版的html（Extensible Hyper Text Markup Language），对html进
 XML是可扩展标记语言（Extensible Markup Language），是一种跨平台语言，编码更自由，可以自由创建标签（
 比如像下面这样创建：
 ```js
-<note>  
+`<note>  
     <to>Tove</to>  
     <from>Jani</from>  
     <heading>Reminder</heading>  
     <body>Don't forget me this weekend!</body>  
-</note> 
+</note> `
 ```
 ），主要用于存储数据和结构，可扩展
 
