@@ -19,16 +19,18 @@ HTML 被设计用来显示数据，其焦点是数据的外观。
 HTML 旨在显示信息，而 XML 旨在传输信息。  
 XML在定义标记时区分大小写，而HTML标记不区分大小写。
 
-3，HTML和XHTML的区别：
-XHTML 元素必须被正确地嵌套。
-例如：XHTML必须要这样`<b><i>This text is bold and italic</i></b>`
-而在 HTML 中，某些元素可以像这样彼此不正确地嵌套：
+#### HTML和XHTML的区别：
+
+XHTML 元素必须被正确地嵌套。  
+例如：  
+XHTML必须要这样`<b><i>This text is bold and italic</i></b>`  
+而在 HTML 中，某些元素可以像这样彼此不正确地嵌套：  
 `<b><i>This text is bold and italic</b></i>`
-XHTML 元素必须被关闭。
-例如`<p>This is a paragraph</p> //这是正确的`
+XHTML 元素必须被关闭。  
+`<p>This is a paragraph</p> //这是正确的`  
 `<p>This is a paragraph //这是错误的`
-标签名必须用小写字母。
-例如: `<p>This is a paragraph</p> //这是正确的`
-`<P>This is a paragraph</P> //这是错误的`
-XHTML 文档必须拥有根元素。
+标签名必须用小写字母。  
+ `<p>This is a paragraph</p> //这是正确的`  
+`<P>This is a paragraph</P> //这是错误的`  
+XHTML 文档必须拥有根元素。  
 所有的 XHTML 元素必须被嵌套于 `<html>` 根元素中
