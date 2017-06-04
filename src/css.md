@@ -197,24 +197,24 @@
   当它里面的任 一列高度增加了，则父容器的高度被撑到里面最高那列的高度，  
   其他比这列矮的列会用它们的padding-bottom补偿这部分高度差。  
 ```js
-  	.wrap{
-			background:red;
-			overflow: hidden;
-		}
-		.l{ 
-			float:left; 
-			width:150px; 
-			background:yellow;
-    		padding-bottom:200px;
-    		margin-bottom:-200px;
-		}
-		.r{ 
-			float:right; 
-			width:450px; 
-			background:#000;
-   			padding-bottom:200px;
-   			margin-bottom:-200px;
-		}
+  .wrap{
+    background:red;
+    overflow: hidden;
+  }
+  .l{
+  float:left;
+    width:150px;
+    background:yellow;
+    padding-bottom:200px;
+    margin-bottom:-200px;
+  }
+  .r{
+    float:right;
+    width:450px;
+    background:#000;
+    padding-bottom:200px;
+    margin-bottom:-200px;
+  }
 ```
 
 ### 经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？
