@@ -174,7 +174,7 @@
 
   把上、左、右三条边隐藏掉（颜色设为 transparent）  
 ```js
-  #demo {
+  `#`demo {
     width: 0;
     height: 0;
     border-width: 20px;
@@ -196,6 +196,26 @@
   设置父容器设置超出隐藏（overflow:hidden），这样子父容器的高度就还是它里面的列没有设定padding-bottom时的高度，  
   当它里面的任 一列高度增加了，则父容器的高度被撑到里面最高那列的高度，  
   其他比这列矮的列会用它们的padding-bottom补偿这部分高度差。  
+```js
+  	.wrap{
+			background:red;
+			overflow: hidden;
+		}
+		.l{ 
+			float:left; 
+			width:150px; 
+			background:yellow;
+    		padding-bottom:200px;
+    		margin-bottom:-200px;
+		}
+		.r{ 
+			float:right; 
+			width:450px; 
+			background:#000;
+   			padding-bottom:200px;
+   			margin-bottom:-200px;
+		}
+```
 
 ### 经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？
 
