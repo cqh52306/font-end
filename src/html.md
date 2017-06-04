@@ -4,12 +4,14 @@ HTML即是超文本标记语言（Hyper Text Markup Language），是最早写�
 XHTML是升级版的html（Extensible Hyper Text Markup Language），对html进行了规范，编码更加严谨纯洁，也是一种过渡语言，html向xml过渡的语言。实际上XHTML 与 HTML 4.01 标准没有太多的不同。
 XML是可扩展标记语言（Extensible Markup Language），是一种跨平台语言，编码更自由，可以自由创建标签（
 比如像下面这样创建：
-`<note>`  
-    `<to>Tove</to>`  
-    `<from>Jani</from>`  
-    `<heading>Reminder</heading>`  
-    `<body>Don't forget me this weekend!</body>`  
-`</note>`  
+```js
+<note>  
+    <to>Tove</to>  
+    <from>Jani</from>  
+    <heading>Reminder</heading>  
+    <body>Don't forget me this weekend!</body>  
+</note> 
+```
 ），主要用于存储数据和结构，可扩展
 
 #### HTML和XML的区别：
