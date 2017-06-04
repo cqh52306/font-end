@@ -547,10 +547,10 @@ var module1 = (function(){
 
  Asynchronous Module Definition，异步模块定义，所有的模块将被异步加载，模块加载不影响后面语句运行。所有依赖某些模块的语句均放置在回调函数中  
 
-  区别：  
-
-     1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.  
-     2. CMD 推崇依赖就近，AMD 推崇依赖前置。看代码：  
+区别： 
+ 
+1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.  
+2. CMD 推崇依赖就近，AMD 推崇依赖前置。看代码：  
 ```js
  // CMD
  define(function(require, exports, module) {
