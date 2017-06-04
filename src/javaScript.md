@@ -1,4 +1,5 @@
 ### 在String对象上定义一个repeatify函数。这个函数接受一个整数参数，来明确字符串需要重复几次
+
     这个函数要求字符串重复指定的次数。举个例子：
 ```js
 console.log('hello'.repeatify(3));
@@ -49,16 +50,16 @@ String.prototype.repeatify = String.prototype.repeatify || function(times) {
      当我们需要一个属性的时，Javascript引擎会先看当前对象中是否有这个属性， 如果没有的话，  
      就会查找他的Prototype对象是否有这个属性，如此递推下去，一直检索到 Object 内建对象。  
  ```js
-        function Func(){}
-            Func.prototype.name = "Sean";
-            Func.prototype.getInfo = function() {
-            return this.name;
-        }
-        var person = new Func();//现在可以参考var person = Object.create(oldObject);
-        console.log(person.getInfo());//它拥有了Func的属性和方法
-        //"Sean"
-        console.log(Func.prototype);
-        // Func { name="Sean", getInfo=function()}
+function Func(){}
+    Func.prototype.name = "Sean";
+    Func.prototype.getInfo = function() {
+    return this.name;
+}
+var person = new Func();//现在可以参考var person = Object.create(oldObject);
+console.log(person.getInfo());//它拥有了Func的属性和方法
+//"Sean"
+console.log(Func.prototype);
+// Func { name="Sean", getInfo=function()}
 ```
 ### JavaScript有几种类型的值？，你能画一下他们的内存图吗？
 
@@ -74,55 +75,54 @@ String.prototype.repeatify = String.prototype.repeatify || function(times) {
   * 正则表达式，`'12.3b'.match(/(\d)+(\.)?(\d)+/g)[0] * 1`, 但是这个不太靠谱，提供一种思路而已。
 
 ### 如何将浮点数点左边的数每三位添加一个逗号，如12000000.11转化为『12,000,000.11』?
- ```js
-  function commafy(num){
-      return num && num
-          .toString()
-          .replace(/(\d)(?=(\d{3})+\.)/g, function($1, $2){
-              return $2 + ',';
-          });
-  }
- ```
+```js
+function commafy(num){
+    return num && num
+        .toString()
+        .replace(/(\d)(?=(\d{3})+\.)/g, function($1, $2){
+            return $2 + ',';
+        });
+}
+```
 
 ### 如何实现数组的随机排序？
 
   方法一：
-  ```js
-    var arr = [1,2,3,4,5,6,7,8,9,10];
-    function randSort1(arr){
-        for(var i = 0,len = arr.length;i < len; i++ ){
-            var rand = parseInt(Math.random()*len);
-            var temp = arr[rand];
-            arr[rand] = arr[i];
-            arr[i] = temp;
-        }
-        return arr;
+```js
+var arr = [1,2,3,4,5,6,7,8,9,10];
+function randSort1(arr){
+    for(var i = 0,len = arr.length;i < len; i++ ){
+        var rand = parseInt(Math.random()*len);
+        var temp = arr[rand];
+        arr[rand] = arr[i];
+        arr[i] = temp;
     }
-    console.log(randSort1(arr));
-
-  ```
+    return arr;
+}
+console.log(randSort1(arr));
+```
   方法二：
-  ```javascript
-    var arr = [1,2,3,4,5,6,7,8,9,10];
-    function randSort2(arr){
-        var mixedArray = [];
-        while(arr.length > 0){
-            var randomIndex = parseInt(Math.random()*arr.length);
-            mixedArray.push(arr[randomIndex]);
-            arr.splice(randomIndex, 1);
-        }
-        return mixedArray;
+```javascript
+var arr = [1,2,3,4,5,6,7,8,9,10];
+function randSort2(arr){
+    var mixedArray = [];
+    while(arr.length > 0){
+        var randomIndex = parseInt(Math.random()*arr.length);
+        mixedArray.push(arr[randomIndex]);
+        arr.splice(randomIndex, 1);
     }
-    console.log(randSort2(arr));
-  ```
+    return mixedArray;
+}
+console.log(randSort2(arr));
+```
   方法三：
-  ```javascript
-    var arr = [1,2,3,4,5,6,7,8,9,10];
-    arr.sort(function(){
-        return Math.random() - 0.5;
-    })
-    console.log(arr);
-  ```
+```js
+var arr = [1,2,3,4,5,6,7,8,9,10];
+arr.sort(function(){
+    return Math.random() - 0.5;
+})
+console.log(arr);
+```
 
 ### Javascript如何实现继承？
 
@@ -131,19 +131,151 @@ String.prototype.repeatify = String.prototype.repeatify || function(times) {
  3、实例继承  
  4、拷贝继承  
 
- 原型prototype机制或apply和call方法去实现较简单，建议使用构造函数与原型混合方式。
+###  原型prototype机制或apply和call方法去实现较简单，建议使用构造函数与原型混合方式。
  ```js
-    function Parent(){
-        this.name = 'wang';
+function Parent(){
+    this.name = 'wang';
+}
+function Child(){
+    this.age = 28;
+}
+Child.prototype = new Parent();//继承了Parent，通过原型
+var demo = new Child();
+alert(demo.age);
+alert(demo.name);//得到被继承的属性
+```
+
+###  JavaScript继承的几种实现方式？
+
+###  javascript创建对象的几种方式？
+
+javascript创建对象简单的说,无非就是使用内置对象或各种自定义对象，当然还可以用JSON；但写法有很多种，也能混合使用。
+
+    1. 对象字面量的方式
+
+        person={firstname:"Mark",lastname:"Yun",age:25,eyecolor:"black"};
+
+    2. 用function来模拟无参的构造函数
+```js
+function Person(){}
+    var person=new Person();//定义一个function，如果使用new"实例化",该function可以看作是一个Class
+    person.name="Mark";
+    person.age="25";
+    person.work=function(){
+    alert(person.name+" hello...");
+}
+person.work();
+```
+
+    3. 用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）
+```js
+function Pet(name,age,hobby){
+    this.name=name;//this作用域：当前对象
+    this.age=age;
+    this.hobby=hobby;
+    this.eat=function(){
+        alert("我叫"+this.name+",我喜欢"+this.hobby+",是个程序员");
     }
+}
+var maidou =new Pet("麦兜",25,"coding");//实例化、创建对象
+maidou.eat();//调用eat方法
+```
 
-    function Child(){
-        this.age = 28;
-    }
-    Child.prototype = new Parent();//继承了Parent，通过原型
+    4、用工厂方式来创建（内置对象）
+```js
+var wcDog =new Object();
+wcDog.name="旺财";
+wcDog.age=3;
+wcDog.work=function(){
+    alert("我是"+wcDog.name+",汪汪汪......");
+}
+wcDog.work();
+```
 
-    var demo = new Child();
-    alert(demo.age);
-    alert(demo.name);//得到被继承的属性
+    5、用原型方式来创建
+```js
+function Dog(){
 
- ```
+}
+Dog.prototype.name="旺财";
+Dog.prototype.eat=function(){
+    alert(this.name+"是个吃货");
+}
+var wangcai =new Dog();
+wangcai.eat();
+```
+    5、用混合方式来创建
+```js
+function Car(name,price){
+    this.name=name;
+    this.price=price;
+}
+Car.prototype.sell=function(){
+    alert("我是"+this.name+"，我现在卖"+this.price+"万元");
+}
+var camry =new Car("凯美瑞",27);
+camry.sell();
+```
+
+### Javascript作用链域?
+
+ 全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。  
+ 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，  
+ 直至全局函数，这种组织形式就是作用域链。
+
+### 谈谈This对象的理解。
+
+this总是指向函数的直接调用者（而非间接调用者）；  
+如果有new关键字，this指向new出来的那个对象；  
+在事件中，this指向触发这个事件的对象，特殊的是，IE中的attachEvent中的this总是指向全局对象Window；  
+
+### eval是做什么的？
+
+ 它的功能是把对应的字符串解析成JS代码并运行；  
+ 应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。  
+ 由JSON字符串转换为JSON对象的时候可以用eval，var obj =eval('('+ str +')');  
+
+### 什么是window对象? 什么是document对象?
+
+ window对象是指浏览器打开的窗口。  
+ document对象是Documentd对象（HTML 文档对象）的一个只读引用，window对象的一个属性。  
+
+### null，undefined 的区别？
+
+ null         表示一个对象是“没有值”的值，也就是值为“空”；  
+ undefined     表示一个变量声明了没有初始化(赋值)；  
+ undefined不是一个有效的JSON，而null是；  
+ undefined的类型(typeof)是undefined；  
+ null的类型(typeof)是object；  
+
+Javascript将未赋值的变量默认值设为undefined；  
+Javascript从来不会将变量设为null。它是用来让程序员表明某个用var声明的变量时没有值的。  
+
+typeof undefined  
+    //"undefined"  
+    undefined :是一个表示"无"的原始值或者说表示"缺少值"，就是此处应该有一个值，但是还没有定义。当尝试读取时会返回 undefined；  
+    例如变量被声明了，但没有赋值时，就等于undefined  
+
+typeof null  
+    //"object"  
+    null : 是一个对象(空对象, 没有任何属性和方法)；  
+    例如作为函数的参数，表示该函数的参数不是对象；  
+
+注意：  
+    在验证null时，一定要使用　=== ，因为 == 无法分别 null 和　undefined  
+        null == undefined // true  
+        null === undefined // false  
+
+再来一个例子：  
+
+    null  
+    Q：有张三这个人么？  
+    A：有！  
+    Q：张三有房子么？  
+    A：没有！  
+
+    undefined  
+    Q：有张三这个人么？  
+    A：有！  
+    Q: 张三有多少岁？  
+    A: 不知道（没有被告诉）  
