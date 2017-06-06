@@ -8,6 +8,10 @@
 1. [html/html5](https://github.com/cqh52306/font-end/blob/master/src/html.md)
 2. [css](https://github.com/cqh52306/font-end/blob/master/src/css.md)
 3. [javaScript](https://github.com/cqh52306/font-end/blob/master/src/javaScript.md)
+4. [JavaScript笔试](https://github.com/cqh52306/font-end/blob/master/src/javaScriptW.md)
+5. [性能优化](https://github.com/cqh52306/font-end/blob/master/src/optimized.md)
+6. [网络安全](https://github.com/cqh52306/font-end/blob/master/src/safe.md)
+7. [其他常识](https://github.com/cqh52306/font-end/blob/master/src/other.md)
 
 
 ## 勘误及提问
